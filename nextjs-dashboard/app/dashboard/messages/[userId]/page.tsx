@@ -10,11 +10,14 @@ interface Message {
   mesagee: string;
 }
 
-export default async function UserMessagesPage({
-  params,
-}: {
-  params: { userId: string };
-}) {
+// Define the type for the page props
+interface PageProps {
+  params: {
+    userId: string;
+  };
+}
+
+export default async function UserMessagesPage({ params }: PageProps) {
   // Await params to ensure it's resolved before accessing its properties
   const { userId } = await Promise.resolve(params);
 
